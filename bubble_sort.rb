@@ -7,12 +7,11 @@ def bubble_sort(arr)
   while swap
     swap = false
     (arr.length - 1).times do |i|
-      if arr[i] > arr[i + 1]
-        temp = arr[i + 1]
-        arr[i + 1] = arr[i]
-        arr[i] = temp
-        swap = true
-      end
+      next if arr[i] <= arr[i + 1]   
+      temp = arr[i + 1]
+      arr[i + 1] = arr[i]
+      arr[i] = temp
+      swap = true
     end
   end
   arr
@@ -25,12 +24,11 @@ def bubble_sort_by(arr)
   while swap
     swap = false
     (arr.length - 1).times do |i|
-      if yield(arr[i], arr[i + 1]).positive?
-        temp = arr[i + 1]
-        arr[i + 1] = arr[i]
-        arr[i] = temp
-        swap = true
-      end
+      next if yield(arr[i], arr[i + 1]) <= 0
+      temp = arr[i + 1]
+      arr[i + 1] = arr[i]
+      arr[i] = temp
+      swap = true
     end
   end
   arr
