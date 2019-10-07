@@ -26,7 +26,7 @@ def bubble_sort_by(arr)
     swap = false
     (arr.length - 1).times do |i|
       next if yield(arr[i], arr[i + 1]) <= 0
-      
+
       temp = arr[i + 1]
       arr[i + 1] = arr[i]
       arr[i] = temp
